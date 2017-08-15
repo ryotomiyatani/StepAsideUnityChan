@@ -51,6 +51,7 @@ public class UnityChanController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		//ゲーム終了ならUnityちゃんの動きを減衰する
 		if(this.isEnd){
 			this.forwardForce *= this.coefficient;
@@ -81,6 +82,8 @@ public class UnityChanController : MonoBehaviour {
 			//Unityちゃんに上方向の力を加える
 			this.myRigidbody.AddForce(this.transform.up * this.upForce);
 		}
+
+
 	}
 	//トリガーモードで他のオブジェクトと接触した場合の処理
 	void OnTriggerEnter(Collider other){
