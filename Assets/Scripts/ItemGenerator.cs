@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemGenerator : MonoBehaviour {
 	//Unityちゃん
 	public GameObject unityChan;
+	//カメラ
+	public GameObject camera;
 
 	//carPrefabを入れる
 	public GameObject carPrefab;
@@ -21,6 +23,8 @@ public class ItemGenerator : MonoBehaviour {
 
 	int distance = 0;
 
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -29,13 +33,17 @@ public class ItemGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float unityChanPosZ = unityChan.transform.position.z + 40;
+
+		float destroyLine = camera.transform.position.y;
 		Debug.Log (unityChan.transform.position.z);
 	
-		if (unityChan.transform.position.z >= -245 + distance) {
+		if(unityChanPosZ < golePos){
+		if (unityChan.transform.position.z >= -245 + distance ) {
 			distance += 15;
 			Debug.Log (distance);
 			//一定の距離ごとにアイテムを生成
 			for (float i = unityChanPosZ; i < unityChanPosZ + 15; i += 15) {
+				
 				//どのアイテムを出すのかをランダムに設定
 				int num = Random.Range (0, 10);
 				if (num <= 1) {
@@ -65,5 +73,6 @@ public class ItemGenerator : MonoBehaviour {
 			}
 		}
 	}
+
 }
-	
+}
